@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+  <p> The file must be a wav file with sampling rate of 16kHz and 16 bit PCM mono file </p>
+
+  {% if converted_text %}
+    <p>Text obtained from audio is: <a href="#">{{converted_text}}</a></p>
+  {% endif %}
+
+  {% if info %}
+    <p>Information extracted is: <a href="#">{{info}}</a></p>
+  {% endif %}
+
+  <p><a href="#">Return to home</a></p>
+{% endblock %}
